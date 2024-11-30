@@ -12,12 +12,12 @@ function handleAddTodo() {
 
     if (inputVal) {
         const template = `
-        <li id="${inputVal}" style="color:red">
+        <li id="${inputVal}" style="color:blue">
             <span>
             ${inputVal}
             </span>
             <button onclick="deleteItem(this)">delete</button>
-            <button>edit</button>
+            <button onclick="editItem(this)">edit</button>
         </li>
         `
 
