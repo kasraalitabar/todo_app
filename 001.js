@@ -12,12 +12,12 @@ function handleAddTodo() {
 
     if (inputVal) {
         const template = `
-        <li id="${inputVal}" style="color:blue">
+        <li id="${inputVal}" style="color:black;margin-bottom:15px;">
             <span>
             ${inputVal}
             </span>
             <button onclick="deleteItem(this)">delete</button>
-            <button onclick="editItem(this)">edit</button>
+            <button onclick="edit(this)">edit</button>
         </li>
         `
 
@@ -33,7 +33,7 @@ function renderTodos() {
             ${item}
             </span>
             <button onclick="deleteItem(this)">delete</button>
-            <button>edit</button>
+            <button onclick="edit(this)">edit</button>
         </li>
         `
     })
@@ -47,6 +47,10 @@ function renderTodos() {
 function deleteItem(clickedElement) {
     clickedElement.parentElement.remove()
 
+}
+
+function edit(clickedElement){
+    clickedElement.parentElement.edit()
 }
 
 
