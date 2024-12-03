@@ -33,7 +33,7 @@ function renderTodos() {
 
     const template = todos.map(item => {
         return `
-        <li id="${item.id}" style="color:red">
+        <li id="${item.id}" style="color:rgb(12, 0, 121)">
             <input onchange="handleChangeCheckbox(this,${item.id})" type="checkbox" ${item.isDone ? "checked" : ""} />
             ${item.id === editableitemId ? `<input id="editInput" value="${item.title}" />` : `<span>${item.title}</span>`}
             <button onclick="deleteItem(${item.id})">delete</button>
