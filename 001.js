@@ -1,4 +1,4 @@
-
+const body = document.body;
 const input = document.getElementById("todo-input");
 const btn = document.getElementById("submit-button");
 const root = document.getElementById("root");
@@ -93,3 +93,8 @@ function handleKeyPress(evt) {
 }
 
 input.addEventListener("keypress", handleKeyPress)
+
+
+function switchTheme() {
+    body.classList.toggle('dark')
+}
