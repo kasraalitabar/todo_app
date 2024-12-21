@@ -18,11 +18,13 @@ function handleAddTodo() {
         const newTodo = {
             id: todos.length > 0 ? todos.at(-1).id + 1 : 1,
             title: inputVal,
-            isDone: false
+            time:getTimeInput(),
+            isDone: false,
         }
 
-        todos.push(newTodo)
-        input.value = ""
+        todos.push(newTodo);
+        input.value = "";
+        document.getElementById("timeInput")
         renderTodos()
     }
 }
@@ -33,11 +35,11 @@ function renderTodos() {
 
     const template = todos.map(item => {
         return `
-        <li id="${item.id}" style="color:rgb(12, 0, 121)">
+        <li id="${item.id}" style="color:#f1edb3;">
             <input onchange="handleChangeCheckbox(this,${item.id})" type="checkbox" ${item.isDone ? "checked" : ""} />
-            ${item.id === editableitemId ? `<input id="editInput" value="${item.title}" />` : `<span>${item.title}</span>`}
-            <button onclick="deleteItem(${item.id})">delete</button>
-            ${item.id === editableitemId ? `<button onclick="saveEdit()">save</button>` : `<button onclick="editItem(${item.id})">edit</button>`}
+            ${item.id === editableitemId ? `<input id="editInput" value="${item.title}" />``<span>${item.time}</span>` : `<span>${item.title}</span>`}
+            <button style="background-color:red;border:red;padding:4px 8px;border-radius:5px" onclick="deleteItem(${item.id})">delete</button>
+            ${item.id === editableitemId ? `<button  onclick="saveEdit()">save</button>` : `<button  onclick="editItem(${item.id}) ">edit</button>`}
             
         </li>
         `
@@ -97,4 +99,11 @@ input.addEventListener("keypress", handleKeyPress)
 
 function switchTheme() {
     body.classList.toggle('dark')
+}
+function getTimeInput(){
+    const timeInput = document.getElementById("timeInput");
+    if(timeInput ===""){
+        return new Date().toLocaleDateString();
+    }
+    return timeInput;
 }

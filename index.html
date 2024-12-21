@@ -11,9 +11,19 @@
 </head>
 
 <body>
-
     <h1 class="title">TODO</h1>
-    <img class="imgg" src="./img/daily-routines-habits-productive-people.png" width="100px" alt="">
+
+    <div class="alll">
+
+        <input type="text" id="todo-input" value="harchi">
+        <button onclick="handleAddTodo()" id="submit-button">add todo</button>
+        <input type="time" id="timeInput" value="">
+        <ul id="root">
+
+        </ul>
+    </div>
+
+    
     <div class="right">
         <div class="in">main</div>
         <hr class="hr">
@@ -25,13 +35,11 @@
         <hr class="hr">
         <div class="in">contact us</div>
         <hr class="hr">
-        <button class="cot" onclick="switchTheme()">switch theme</button>
-
     </div>
     <div class="left">
         <h2 class="news">must know</h2>
-        <div class="most">routine of famous peaple</div>
-        <marquee class="marq" width="185px" scrollamount="1" direction="up" height="250px">
+        <div class="most">routine of famous peaple:</div>
+        <marquee class="marq" width="100%" scrollamount="2" direction="left" height="auto">
             The Queen of England wakes up every morning at 7:30 a.m.
             Although she doesn't leave her room before 8:30 a.m., the Queen makes sure to start the day with early
             morning news and a cup of tea.
@@ -73,15 +81,7 @@
         <div class="daghighe"></div>
         <div class="saniye"></div>
     </div> -->
-    <div class="alll">
-
-        <input type="text" id="todo-input" value="harchi">
-        <button onclick="handleAddTodo()" id="submit-button">add todo</button>
-
-        <ul id="root">
-
-        </ul>
-    </div>
+    
 </body>
 
 </html>
