@@ -11,6 +11,7 @@ body{
     width: 200px;
     height: 365px;
     top: 10%;
+    position: absolute;
 }
 .in{
     font-size: x-large;
@@ -62,11 +63,13 @@ body{
     justify-content: center;
     color:#f1edb3;
     font-size: 30px;
+    position: static;
+    margin-top: 200px;
 }
 .most{
     font-size: 20px;
     padding-left: 5px;
-    color: #eeeeee;
+    color: #f1edb3;
 }
 .marq{
     margin-top: 20px;

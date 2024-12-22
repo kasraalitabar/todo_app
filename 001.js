@@ -2,7 +2,7 @@ const body = document.body;
 const input = document.getElementById("todo-input");
 const btn = document.getElementById("submit-button");
 const root = document.getElementById("root");
-
+const timeInput = document.getElementById("timeInput").value="";
 const todosData = JSON.parse(localStorage.getItem("todos"))
 
 
@@ -24,7 +24,7 @@ function handleAddTodo() {
 
         todos.push(newTodo);
         input.value = "";
-        document.getElementById("timeInput")
+        document.getElementById("timeInput").value=""
         renderTodos()
     }
 }
@@ -37,10 +37,10 @@ function renderTodos() {
         return `
         <li id="${item.id}" style="color:#f1edb3;">
             <input onchange="handleChangeCheckbox(this,${item.id})" type="checkbox" ${item.isDone ? "checked" : ""} />
-            ${item.id === editableitemId ? `<input id="editInput" value="${item.title}" />``<span>${item.time}</span>` : `<span>${item.title}</span>`}
+            ${item.id === editableitemId ? `<input id="editInput" value="${item.title}" />` : `<span>${item.title}</span>`}
             <button style="background-color:red;border:red;padding:4px 8px;border-radius:5px" onclick="deleteItem(${item.id})">delete</button>
             ${item.id === editableitemId ? `<button  onclick="saveEdit()">save</button>` : `<button  onclick="editItem(${item.id}) ">edit</button>`}
-            
+            <span>${item.time}</span>
         </li>
         `
     })
@@ -101,9 +101,8 @@ function switchTheme() {
     body.classList.toggle('dark')
 }
 function getTimeInput(){
-    const timeInput = document.getElementById("timeInput");
     if(timeInput ===""){
-        return new Date().toLocaleDateString();
+        return new Date().toLocaleTimeString();
     }
     return timeInput;
 }
