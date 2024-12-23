@@ -34,7 +34,7 @@ function renderTodos() {
 
     const template = todos.map(item => {
         return `
-        <li id="${item.id}" style="color:#f1edb3;">
+        <li id="${item.id}" style="color:#3b503d;">
             <input onchange="handleChangeCheckbox(this,${item.id})" type="checkbox" ${item.isDone ? "checked" : ""} />
             ${item.id === editableitemId ? `<input id="editInput" value="${item.title}" />` : `<span>${item.title}</span>`}
             <button style="background-color:red;border:red;padding:4px 8px;border-radius:5px;margin-bottom:5px" onclick="deleteItem(${item.id})">delete</button>
@@ -91,9 +91,14 @@ function handleKeyPress(evt) {
     if (evt.key === "Enter") {
         handleAddTodo();
     }
+    if(evt.key === "Enter"){
+        editItem()
+    }
 }
 
 input.addEventListener("keypress", handleKeyPress)
+button.addEventListener("keypress",saveEdit)
+
 
 
 function switchTheme() {
